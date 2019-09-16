@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.mo</groupId>
+    <artifactId>microservice</artifactId>
+    <version>0.1</version>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.3.RELEASE</version>
+    </parent>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <lombok.version>1.18.6</lombok.version>
+        <!--<logback.version>1.7.25</logback.version>-->
+        <springboot.version>2.0.3.RELEASE</springboot.version>
+        <springcloud.version>Finchley.RELEASE</springcloud.version>
+        <springcloud-module.version>2.0.3.RELEASE</springcloud-module.version>
+        <springsecurity.version>2.0.2.RELEASE</springsecurity.version>
+        <springsecurity-oauth2.version>2.2.2.RELEASE</springsecurity-oauth2.version>
+        <springsecurity-oauth2-autoconfigure.version>2.0.3.RELEASE</springsecurity-oauth2-autoconfigure.version>
+        <springsecurity-jwt.version>1.0.9.RELEASE</springsecurity-jwt.version>
+    </properties>
+
+
+    <!-- dependency version management -->
+    <dependencyManagement>
+
+        <dependencies>
+
+            <!-- Spring : Boot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springboot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--Spring Cloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${springcloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--Spring Cloud : Config -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-config</artifactId>
+                <version>${springcloud-module.version}</version>
+            </dependency>
+
+            <!--Spring Cloud : Config Server -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-config-server</artifactId>
+                <version>${springcloud-module.version}</version>
+            </dependency>
+
+            <!--Spring Cloud : Eureka Server -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+                <version>${springcloud-module.version}</version>
+            </dependency>
+
+            <!--Spring Cloud : Eureka Client -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                <version>${springcloud-module.version}</version>
+            </dependency>
+
+            <!-- Spring Cloud : Zuul -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+                <version>${springcloud-module.version}</version>
+            </dependency>
+
+            <!-- Spring Cloud : Security -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-security</artifactId>
+                <version>${springsecurity.version}</version>
+            </dependency>
+
+            <!-- Spring Security : Oauth2 -->
+            <dependency>
+                <groupId>org.springframework.security.oauth</groupId>
+                <artifactId>spring-security-oauth2</artifactId>
+                <version>${springsecurity-oauth2.version}</version>
+            </dependency>
+
+            <!-- Spring Security : Oauth2 AutoConfigure -->
+            <dependency>
+                <groupId>org.springframework.security.oauth.boot</groupId>
+                <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+                <version>${springsecurity-oauth2-autoconfigure.version}</version>
+            </dependency>
+
+            <!-- Spring : Security JWT -->
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-jwt</artifactId>
+                <version>${springsecurity-jwt.version}</version>
+            </dependency>
+
+            <!-- Lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- Logback -->
+            <!--<dependency>-->
+                <!--<groupId>org.slf4j</groupId>-->
+                <!--<artifactId>jcl-over-slf4j</artifactId>-->
+                <!--<version>${logback.version}</version>-->
+            <!--</dependency>-->
+
+        </dependencies>
+
+    </dependencyManagement>
+
+    <modules>
+        <module>discovery</module>
+        <module>config</module>
+        <module>oauth2</module>
+        <module>gateway</module>
+    </modules>
+
+</project>
